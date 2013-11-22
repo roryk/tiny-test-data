@@ -1,0 +1,2 @@
+chrM	Mt_rRNA	exon	70	1024	.	+	.	 gene_id "ENSMUSG00000064337"; transcript_id "ENSMUST00000082388"; exon_number "1"; gene_name "mt-Rnr1"; transcript_name "mt-Rnr1-201";
+chrM	Mt_rRNA	exon	1094	2675	.	+	.	 gene_id "ENSMUSG00000064339"; transcript_id "ENSMUST00000082390"; exon_number "1"; gene_name "mt-Rnr2"; transcript_name "mt-Rnr2-201";
