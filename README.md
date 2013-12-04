@@ -2,7 +2,7 @@ tiny-test-data
 ==============
 Super small biological datasets designed with unit testing in mind.
 
-Rationale
+rationale
 =========
 Tests are great to have but they are not very fun to write and coming
 up with small datasets for testing, especially given the myriad of
