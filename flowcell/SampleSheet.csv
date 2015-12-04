@@ -1,0 +1,29 @@
+[Header],,,,,,,,
+IEMFileVersion,4,,,,,,,
+Investigator Name,,,,,,,,
+Experiment Name,,,,,,,,
+Date,10/15/2015,,,,,,,
+Workflow,GenerateFASTQ,,,,,,,
+Application,HiSeq FASTQ Only,,,,,,,
+Assay,TruSeq LT,,,,,,,
+Description,,,,,,,,
+Chemistry,Default,,,,,,,
+,,,,,,,,
+[Reads],,,,,,,,
+151,,,,,,,,
+151,,,,,,,,
+,,,,,,,,
+[Settings],,,,,,,,
+Adapter,AGATCGGAAGAGCACACGTCTGAACTCCAGTCA,,,,,,,
+AdapterRead2,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT,,,,,,,
+,,,,,,,,
+[Data],,,,,,,,
+Lane,Sample_ID,Sample_Name,Sample_Plate,Sample_Well,I7_Index_ID,index,Sample_Project,Description
+1,PhiX,PhiX,PhiX,,,,Test,PhiX
+2,PhiX,PhiX,PhiX,,,,Test,PhiX
+3,NA12878_100pM,NA12878_100pM,NA12878_100pM,,A016,CCGTCC,Test,NA12878_100pM
+4,NA12878_200pM,NA12878_200pM,NA12878_200pM,,A016,CCGTCC,Test,NA12878_200pM
+5,NA12878_300pM,NA12878_300pM,NA12878_300pM,,A016,CCGTCC,Test,NA12878_300pM
+6,NA12878_400pM,NA12878_400pM,NA12878_400pM,,A016,CCGTCC,Test,NA12878_400pM
+7,PhiX,PhiX,PhiX,,,,Test,PhiX
+8,PhiX,PhiX,PhiX,,,,Test,PhiX

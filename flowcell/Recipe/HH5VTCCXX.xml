@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<RecipeFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Protocol>
+    <ReadRef Description="Read #1" ReadName="Read1" />
+    <ChemistryRef Description="End Deblock" ChemistryName="EndDeblock" />
+    <ChemistryRef Description="Paired End Turnaround" ChemistryName="PETurnaround" />
+    <ReadRef Description="Read #2" ReadName="Read2" />
+    <ChemistryRef Description="Post Run Step" ChemistryName="PostRun" />
+  </Protocol>
+  <ChemistryDefinitions>
+    <ChemistryDefinition Name="CompleteCycle">
+      <ChemistryStep Description="Deblock" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="95" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="55" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PCM" AspirationRate="250" DispenseRate="2500" Volume="62" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="10000" />
+      </ChemistryStep>
+      <ChemistryStep Description="Buffer Wash" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB1" AspirationRate="500" DispenseRate="2500" Volume="80" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="40" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+      <ChemistryStep Description="Incorporation" Repeat="1">
+        <Temp Temperature="60" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="250" DispenseRate="2500" Volume="50" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="40000" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="250" DispenseRate="2500" Volume="12" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="30000" />
+        <Temp Temperature="20" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="60" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="FirstBase">
+      <ChemistryStep Description="Incorporation" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="60" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="250" DispenseRate="2500" Volume="50" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="40000" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="250" DispenseRate="2500" Volume="12" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="30000" />
+        <Temp Temperature="20" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="60" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="End">
+      <ChemistryStep Description="Safe State" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="500" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="EndDeblock">
+      <ChemistryStep Description="Deblock" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="55" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PCM" AspirationRate="250" DispenseRate="2500" Volume="62" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <TempOff />
+      </ChemistryStep>
+      <ChemistryStep Description="Buffer Wash" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="500" DispenseRate="2500" Volume="40" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="ResumeChemistry">
+      <ChemistryStep Description="Prepare for scanning" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PSM" AspirationRate="250" DispenseRate="2000" Volume="70" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="20" Duration="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="PauseChemistry">
+      <ChemistryStep Description="Pause flowcell" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="250" DispenseRate="2000" Volume="100" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="20" Duration="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="CompleteCycle_Low">
+      <ChemistryStep Description="Deblock" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="95" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="55" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PCM" AspirationRate="120" DispenseRate="2500" Volume="62" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="80000" />
+      </ChemistryStep>
+      <ChemistryStep Description="Buffer Wash" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="40" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB1" AspirationRate="120" DispenseRate="2500" Volume="100" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="40" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+      <ChemistryStep Description="Incorporation" Repeat="1">
+        <Temp Temperature="55" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="120" DispenseRate="2500" Volume="50" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="80000" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="120" DispenseRate="2500" Volume="12" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="211000" />
+        <Temp Temperature="20" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="60" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="FirstBase_Low">
+      <ChemistryStep Description="Incorporation" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="55" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="120" DispenseRate="2500" Volume="50" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="80000" />
+        <PumpToFlowcell Solution="0" ReagentName="PIM" AspirationRate="120" DispenseRate="2500" Volume="12" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="211000" />
+        <Temp Temperature="20" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="60" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="EndDeblock_Low">
+      <ChemistryStep Description="Deblock" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="45" Duration="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PCM" AspirationRate="120" DispenseRate="2500" Volume="62" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="80000" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <TempOff />
+      </ChemistryStep>
+      <ChemistryStep Description="Buffer Wash" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="40" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="PostRun">
+      <ChemistryStep Description="Post-Run Flush" Repeat="1">
+        <Temp Temperature="20" Duration="0" />
+        <PumpToFlowcell Solution="2" ReagentName="PW1" AspirationRate="250" DispenseRate="2000" Volume="2250" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="PETurnaround">
+      <ChemistryStep Description="Deprotection" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PRM" AspirationRate="250" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PRM" AspirationRate="60" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="38" Duration="120000" />
+        <Wait Duration="600000" />
+        <PumpToFlowcell Solution="0" ReagentName="PRM" AspirationRate="60" DispenseRate="2500" Volume="25" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="600000" />
+        <PumpToFlowcell Solution="0" ReagentName="PRM" AspirationRate="60" DispenseRate="2500" Volume="25" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="600000" />
+        <Temp Temperature="20" Duration="120000" />
+        <PumpToFlowcell Solution="0" ReagentName="PB1" AspirationRate="60" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+      <ChemistryStep Description="Pre-resynthesis_wash" Repeat="1">
+        <Temp Temperature="55" Duration="120000" />
+        <PumpToFlowcell Solution="0" ReagentName="PDR" AspirationRate="120" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PPM" AspirationRate="120" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PAM" AspirationRate="120" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+      <ChemistryStep Description="Resynthesis" Repeat="11">
+        <PumpToFlowcell Solution="0" ReagentName="PDR" AspirationRate="120" DispenseRate="2500" Volume="28" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PPM" AspirationRate="120" DispenseRate="2500" Volume="28" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="PAM" AspirationRate="120" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="120000" />
+      </ChemistryStep>
+      <ChemistryStep Description="Post-resynthesis_wash" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="120" DispenseRate="2500" Volume="150" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="20" Duration="120000" />
+      </ChemistryStep>
+      <ChemistryStep Description="Linearisation 2" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PLM2" AspirationRate="60" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="38" Duration="120000" />
+        <PumpToFlowcell Solution="0" ReagentName="PLM2" AspirationRate="60" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="300000" />
+        <PumpToFlowcell Solution="0" ReagentName="PLM2" AspirationRate="60" DispenseRate="2500" Volume="25" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="300000" />
+        <PumpToFlowcell Solution="0" ReagentName="PLM2" AspirationRate="60" DispenseRate="2500" Volume="25" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="300000" />
+        <Temp Temperature="20" Duration="120000" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="60" DispenseRate="2500" Volume="120" SolutionDelay="0" Duration="0" ToPosition="0" />
+      </ChemistryStep>
+      <ChemistryStep Description="Rehybridisation" Repeat="1">
+        <PumpToFlowcell Solution="0" ReagentName="PDR" AspirationRate="60" DispenseRate="2500" Volume="100" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="65" Duration="60000" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="60" DispenseRate="2500" Volume="120" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="HP11" AspirationRate="60" DispenseRate="2500" Volume="125" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <PumpToFlowcell Solution="0" ReagentName="HP11" AspirationRate="60" DispenseRate="2500" Volume="75" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="40" Duration="60000" />
+        <PumpToFlowcell Solution="0" ReagentName="HP11" AspirationRate="60" DispenseRate="2500" Volume="25" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Wait Duration="300000" />
+        <PumpToFlowcell Solution="0" ReagentName="PB2" AspirationRate="60" DispenseRate="2500" Volume="120" SolutionDelay="0" Duration="0" ToPosition="0" />
+        <Temp Temperature="20" Duration="0" />
+      </ChemistryStep>
+    </ChemistryDefinition>
+    <ChemistryDefinition Name="ResumePEChemistry">
+      <ChemistryStep Description="Prepare for Paired End Chemistry" Repeat="1" />
+    </ChemistryDefinition>
+  </ChemistryDefinitions>
+  <PumpDefinitions>
+    <PumpDefinition Name="Default">
+      <BeforeImagingEachLane Enabled="false">
+        <Lane Solution="3" AspirationRate="120" DispenseRate="2500" Volume="19" SolutionDelay="0" Duration="0" ToPosition="0" Num="1" Surface="Bottom" />
+        <Lane Solution="3" AspirationRate="120" DispenseRate="2500" Volume="19" SolutionDelay="0" Duration="0" ToPosition="0" Num="5" />
+      </BeforeImagingEachLane>
+    </PumpDefinition>
+  </PumpDefinitions>
+  <ReadDefinitions>
+    <ReadDefinition Name="Read1" IsIndex="false" ForTemplateOnly="false">
+      <Imaging ChemistryName="FirstBase" VariabilityName="Read1" Cycles="1" />
+      <Imaging ChemistryName="CompleteCycle" VariabilityName="Read1" Cycles="150" />
+      <Chemistry ChemistryName="End" />
+    </ReadDefinition>
+    <ReadDefinition Name="Read2" IsIndex="false" ForTemplateOnly="false">
+      <Imaging ChemistryName="FirstBase" VariabilityName="Read2" Cycles="1" />
+      <Imaging ChemistryName="CompleteCycle" VariabilityName="Read2" Cycles="150" />
+      <Chemistry ChemistryName="End" />
+    </ReadDefinition>
+  </ReadDefinitions>
+  <PrimeDefinitions>
+    <PrimeDefinition Name="SbsPrime">
+      <Prime Solution="1" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="4" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="8" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="7" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="5" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="3" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="3" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="5" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="8" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="7" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="4" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="1" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="6" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+      <Prime Solution="6" AspirationRate="0" DispenseRate="0" Volume="0" SolutionDelay="0" Duration="0" ToPosition="0" />
+    </PrimeDefinition>
+  </PrimeDefinitions>
+  <ReagentDefinitions>
+    <ReagentDefinition Name="SbsReagents" IsPairedEnd="false">
+      <Reagent Name="PIM" Description="Patterned Incorporation Mix" ViciPosition="1">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PW1" Description="Wash buffer" ViciPosition="2">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PSM" Description="Patterned Scan Mix" ViciPosition="3">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB1" Description="Patterned SBS Buffer 1" ViciPosition="4">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB2" Description="Patterned SBS Buffer 2" ViciPosition="5">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB2" Description="Patterned SBS Buffer 2" ViciPosition="6">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PCM" Description="Patterned Cleavage Mix" ViciPosition="7">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB2" Description="Patterned SBS Buffer 2" ViciPosition="8">
+        <Sample>false</Sample>
+      </Reagent>
+    </ReagentDefinition>
+    <ReagentDefinition Name="PairedEndReagents" IsPairedEnd="false">
+      <Reagent Name="PRM" Description="Patterned Resynthesis Mix" ViciPosition="10">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PLM2" Description="Patterned Linearization Mix 2" ViciPosition="11">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PW1" Description="Wash buffer" ViciPosition="12">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PAM" Description="Patterned Amplification Mix" ViciPosition="13">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PPM" Description="Patterned Amp Premix" ViciPosition="14">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PDR" Description="Patterned Denaturation Mix" ViciPosition="15">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="HP11" Description="Primer Mix, Read 2" ViciPosition="16">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PW1" Description="Wash buffer" ViciPosition="17">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PW1" Description="Wash buffer" ViciPosition="18">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PW1" Description="Wash buffer" ViciPosition="19">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB2" Description="Patterned SBS Buffer 2" ViciPosition="5">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB2" Description="Patterned SBS Buffer 2" ViciPosition="6">
+        <Sample>false</Sample>
+      </Reagent>
+      <Reagent Name="PB1" Description="Patterned SBS Buffer 1" ViciPosition="4">
+        <Sample>false</Sample>
+      </Reagent>
+    </ReagentDefinition>
+  </ReagentDefinitions>
+  <CycleWaitDefinitions />
+</RecipeFile>
