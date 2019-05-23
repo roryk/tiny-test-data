@@ -1,0 +1,1 @@
+Tiny variant call format files extracted from samtools [VCF v4.3 specification](samtools.github.io/hts-specs/VCFv4.3.pdf). Also cancer-related VCFs [from bcbio's `./run_tests.sh cancermulti`](http://bcbio-nextgen.readthedocs.io/en/latest/contents/pipelines.html#cancer-variant-calling) and its resulting {S1 & S2}-variants.vcf files under the `data` directory.
